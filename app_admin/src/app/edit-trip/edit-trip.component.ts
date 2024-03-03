@@ -9,6 +9,7 @@ import { TripDataService } from 'services/trip-data.service';
   styleUrls: ['./edit-trip.component.css']
 })
 export class EditTripComponent implements OnInit {
+  [x: string]: any;
 
   editForm: FormGroup;
   submitted = false;
@@ -56,11 +57,13 @@ export class EditTripComponent implements OnInit {
     this.submitted = true;
 
     if (this.editForm.valid) {
-      this.tripService.updateTrip(this.editForm.value)
+      this.tripService.editTrip(this.editForm.value)
         .then(data => {
           console.log(data);
           this.router.navigate(['']);
         });
     }
-  } 
+  }
+  
+  
 }
